@@ -1,0 +1,11 @@
+const express = require('express')
+  , router = express.Router()
+
+module.exports = router.get('/', (req, res) => {
+
+  console.log('req.baseUrl')
+  console.log(req.headers.host)
+
+  res.render('pages/home', { "title": 'Grupo Tree - Advocacia | Serviços Imobiliários | Tecnologia ', "req": req })
+
+})

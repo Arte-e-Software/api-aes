@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%-include ../blocks/head.ejs %>
+    <style>
+        body {
+            margin-top: 6rem !important;
+            background-color: #ffffff;
+        }
+
+        .true-or-false {
+            min-width: 7rem !important;
+        }
+    </style>
+    <script src="assets/javascript/framework/utils/alert.js"></script>
+    <script src="assets/javascript/framework/tools/block/create/sanitize.js"></script>
+    <script src="assets/javascript/framework/tools/block/create/enter.js"></script>
+
+    <body>
+        <%-include ../blocks/dock.ejs %>
+            <main class="flex">
+                <div class="container-flex" id="main-framework">
+                    <div class="tab-content px-4" id="nav-tabContent">
+                            <%-include ../framework/apps/apps-inc.ejs %>
+                                <%-include ../framework/tools/nav-tools-inc.ejs %>
+                    </div>
+                </div>
+            </main>
+            <%-include ../blocks/vendor.ejs %>
+                <%-include ../apps/app-test.ejs %>
+                    
+    </body>
+    <%-include ../blocks/framework-scripts.ejs %>
+    <script>
+
+            (() => {
+
+                document.getElementById('checkbox-show-all-warning-alerts').addEventListener('change', event => { toggleAlert(event) })
+                document.getElementById('checkbox-show-all-info-alerts').addEventListener('change', event => { toggleAlert(event) })
+
+            })()
+
+            function toggleAlert(event) {
+                let type = event.target.id.split('-')[3],
+                    alert = document.getElementsByClassName(`alert-${type}`),
+                    icon = document.getElementById(`icon-checkbox-show-all-${type}-alerts`)
+                if (event.target.checked) {
+                    for (i = 0; i < alert.length; i++) { alert[i].style.display = 'block' }
+                    icon.className = `form-check form-switch text-${type}`
+                } else {
+                    for (i = 0; i < alert.length; i++) { alert[i].style.display = 'none' }
+                    icon.className = 'form-check form-switch text-white'
+                }
+            }
+
+    </script>
+</html>
+<!--
+block Structured Query Language
+*********************************
+
+aes.framework
+*************
+Framework orientado a EVENTOS inspirado no Diagrama de Ishikawa organizado pelo pensamento Ikigai
+
+Definições
+**********
+
+  # Evento
+  ********
+  O fato em sí. Nem tudo é um problema (a principal diferença do Ishikawa), mas todo problema por se tornar uma oportunidade de melhorar e/ou inovar
+
+  # Causa	
+  *******
+  origem, motivo, razão de algo.
+
+    Causa principal
+    ***************
+    causas mais notáveis, causas de primeiro nível que agruparão subcausas
+
+    Causa secundária
+    ****************	
+    subcausas das causas principais, ramificação das causas principais
+
+  # Ação
+  ******
+
+    Tags
+    *******
+      1 - Agentes
+      2 - Momentos
+      3 - Classificações
+      4 - Decisões
+
+          Agente
+          *****************
+          Entidade [Nome do entidade]
+          [Detalhes da entidade]
+          [Agrupamentos da entidade]
+
+          1 - Identificação
+          2 - Decisão
+          3 - Reação
+
+          Momento
+          *******
+          Conhecer / Conquistar / Conviver
+
+          Classificação
+          *************
+
+            Evento Ordinário
+            *****************
+            evento rotineiro que obedece um calendário conhecido ou é uma reação dos agentes a um evento provocado
+            
+            Tipo
+            ****
+            Todos os eventos conhecidos
+
+            Evento Extraordinário
+            **********************
+            dificuldade na obtenção de um determinado objetivo ou resultado esperado, situação difícil que pede uma solução, no
+            Diagrama de Ishikawa, é comum que o problema apareça como uma pergunta
+
+            Tipo
+            ****
+            1 - catástrofe
+            2 - gravíssimo
+            3 - grave
+            4 - importante
+            5 - oportunidade (falso problema)
+        
+        Decisão
+        *******
+        dentro das alternativas, escolher a mais adequada segundo sua análise
+        
+  # Efeito
+  ********
+  aquilo que é produzido por uma causa, resultado, consequência
+
+  # Conclusão
+  ***********
+
+  ˜˜˜˜˜˜
+ikigai 
+˜˜˜˜˜˜
+1 - O que amo fazer
+2 - O que posso fazer bem
+3 - O que posso ser pago para fazer
+4 - O que o mundo precisa
+5 - O que detesto fazer (adição pessoal do Pedro)
+
+/////////////////////////////////////////
+
+Governança corporativa
+
+é o conjunto de:
+
+people, process, performance, purpose
+
+processos, 
+políticas, 
+regulamentos e 
+setores
+
+que regulam a maneira como uma empresa é:
+
+dirigida, 
+administrada e 
+controlada
+
+/////////////////////////////////////////
+-->

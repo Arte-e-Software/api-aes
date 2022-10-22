@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="pt-br">
+(:-include ./blocks/head.ejs :)
+
+  <body>
+    (:-include ./blocks/nav.ejs :)
+      <main class="flex">
+        <h3 class="m-3">(:=error.status :)</h3>
+        <pre class="m-3 border card p-4 text-success bg-dark" id="stack">(:=error.stack :)</pre>
+        <div class="container my-3" id="div-main"></div>
+      </main>
+      (:-include ./blocks/javascript.ejs :)
+  </body>
+
+</html>
+
+

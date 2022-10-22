@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<link rel="canonical" href="https://aes.tec.br/">
+<link href="assets/vendor/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+    /* GLOBAL STYLES
+    -------------------------------------------------- */
+    /* Padding below the footer and lighter body text */
+    
+    body {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        color: #5a5a5a;
+    }
+    /* CUSTOMIZE THE CAROUSEL
+    -------------------------------------------------- */
+    /* Carousel base class */
+    
+    .carousel {
+        margin-bottom: 4rem;
+    }
+    /* Since positioning the image, we need to help out the caption */
+    
+    .carousel-caption {
+        bottom: 3rem;
+        z-index: 10;
+    }
+    /* Declare heights because of positioning of img element */
+    
+    .carousel-item {
+        height: 32rem;
+    }
+    
+    .carousel-item>img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 32rem;
+    }
+    /* MARKETING CONTENT
+    -------------------------------------------------- */
+    /* Center align the text within the three columns below the carousel */
+    
+    .marketing .col-lg-4 {
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    
+    .marketing h2 {
+        font-weight: 400;
+    }
+    /* rtl:begin:ignore */
+    
+    .marketing .col-lg-4 p {
+        margin-right: .75rem;
+        margin-left: .75rem;
+    }
+    /* rtl:end:ignore */
+    /* Featurettes
+    ------------------------- */
+    
+    .featurette-divider {
+        margin: 5rem 0;
+        /* Space out the Bootstrap <hr> more */
+    }
+    /* Thin out the marketing headings */
+    
+    .featurette-heading {
+        font-weight: 300;
+        line-height: 1;
+        /* rtl:remove */
+        letter-spacing: -.05rem;
+    }
+    /* RESPONSIVE CSS
+    -------------------------------------------------- */
+    
+    @media (min-width: 40em) {
+        /* Bump up size of carousel content */
+        .carousel-caption p {
+            margin-bottom: 1.25rem;
+            font-size: 1.25rem;
+            line-height: 1.4;
+        }
+        .featurette-heading {
+            font-size: 50px;
+        }
+    }
+    
+    @media (min-width: 62em) {
+        .featurette-heading {
+            margin-top: 7rem;
+        }
+    }
+    
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+    
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
+
+<body>
+    <div>
+
+        <h1 class="m_mt-4 m_mb-4 m_text-center">Boletos - Teste</h1>
+
+        <form target="_blank">
+
+            <div class="m_row m_mb-3">
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label"> Escolha um banco:</label>
+                    <select class="m_form-select" aria-label="Default select example">
+                        <option selected value="">Bradesco</option>
+                        <option value="">Itaú</option>
+                        <option value="">Santander</option>
+                        <option value="">Banco do Brasil</option>
+                        <option value="3">Sicredi</option>
+                    </select>
+                </div>
+            </div>
+
+            <h2 class="m_fs-4 m_mt-4 m_mb-4">Dados do Pagador:</h2>
+
+            <div class="m_row m_mb-3">
+                <div class="m_col-6">
+                    <label for="m_" class="m_form-label">Nome:</label>
+                    <input type="text" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-6">
+                    <label for="m_" class="m_form-label">Registro Nacional:</label>
+                    <input type="number" name="" id="m_" class="m_form-control">
+                </div>
+            </div>
+
+            <div class="m_row m_mb-3">
+                <div class="m_col-8">
+                    <label for="m_" class="m_form-label">Logradouro:</label>
+                    <input type="text" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Bairro:</label>
+                    <input type="text" name="" id="m_" class="m_form-control">
+                </div>
+            </div>
+
+            <div class="m_row m_mb-3">
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Cidade:</label>
+                    <input type="text" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Estado:</label>
+                    <select class="m_form-select" aria-label="Default select example">
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option selected value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                        <option value="DF">DF</option>
+                    </select>
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">CEP:</label>
+                    <input type="text" name="" id="m_" class="m_form-control">
+                </div>
+            </div>
+
+            <h2 class="m_fs-4 m_mt-4 m_mb-4">Dados do Beneficiário:</h2>
+
+            <div class="m_row m_mb-3">
+                <div class="m_col-6">
+                    <label for="m_" class="m_form-label">Nome:</label>
+                    <input type="text" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-6">
+                    <label for="m_" class="m_form-label">CNPJ:</label>
+                    <input type="number" name="" id="m_" class="m_form-control">
+                </div>
+            </div>
+
+            <div class="m_row m_mb-3">
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Carteira:</label>
+                    <input type="number" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Agencia:</label>
+                    <input type="number" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Digito:</label>
+                    <input type="number" name="" id="m_" class="m_form-control">
+                </div>
+            </div>
+
+            <div class="m_row m_mb-3">
+                <div class="m_col-8">
+                    <label for="m_" class="m_form-label">Conta:</label>
+                    <input type="number" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Digito:</label>
+                    <input type="number" name="" id="m_" class="m_form-control">
+                </div>
+            </div>
+
+            <div class="m_row m_mb-3">
+                <div class="m_col-8">
+                    <label for="m_" class="m_form-label">Nosso Número:</label>
+                    <input type="number" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Nosso Digito:</label>
+                    <input type="number" name="" id="m_" class="m_form-control">
+                </div>
+            </div>
+
+            <div class="m_row m_mb-3">
+                <div class="m_col-8">
+                    <label for="m_" class="m_form-label">Logradouro:</label>
+                    <input type="text" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Bairro:</label>
+                    <input type="text" name="" id="m_" class="m_form-control">
+                </div>
+            </div>
+
+            <div class="m_row m_mb-3">
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Cidade:</label>
+                    <input type="text" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Estado:</label>
+                    <select class="m_form-select" aria-label="Default select example">
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option selected value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                        <option value="DF">DF</option>
+                    </select>
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">CEP:</label>
+                    <input type="text" name="" id="m_" class="m_form-control">
+                </div>
+            </div>
+
+            <h2 class="m_fs-4 m_mt-4 m_mb-4">Dados do Boleto:</h2>
+
+            <div class="m_row m_mb-3">
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Número:</label>
+                    <input type="number" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Especie:</label>
+                    <input type="text" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Valor:</label>
+                    <input type="number" name="" id="m_" class="m_form-control">
+                </div>
+            </div>
+
+            <div class="m_row m_mb-3">
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Vencimento:</label>
+                    <input type="date" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Processamento:</label>
+                    <input type="date" name="" id="m_" class="m_form-control">
+                </div>
+                <div class="m_col-4">
+                    <label for="m_" class="m_form-label">Documentos:</label>
+                    <input type="date" name="" id="m_" class="m_form-control">
+                </div>
+            </div>
+
+            <div class="m_row m_mb-3">
+                <div class="m_col">
+                    <label for="m_" class="m_form-label">Instruções:</label>
+                    <input type="text-aria" name="" id="m_" class="m_form-control">
+                </div>
+            </div>
+
+            <button type="submit" class="m_btn m_btn-primary m_mt-4 m_px-4">Enviar</button>
+
+        </form>
+
+        <u></u>
+
+    </div>
+
+</body>
+<%-include('../../blocks/vendor.ejs')%>
+
+</html>
