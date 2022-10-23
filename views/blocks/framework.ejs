@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<%-include ../blocks/head.ejs %>
+<%-include ('../blocks/head.ejs') %>
     <style>
         body {
             margin-top: 6rem !important;
@@ -16,20 +16,20 @@
     <script src="assets/javascript/framework/tools/block/create/enter.js"></script>
 
     <body>
-        <%-include ../blocks/dock.ejs %>
+        <%-include ('../blocks/dock.ejs') %>
             <main class="flex">
                 <div class="container-flex" id="main-framework">
                     <div class="tab-content px-4" id="nav-tabContent">
-                            <%-include ../framework/apps/apps-inc.ejs %>
-                                <%-include ../framework/tools/nav-tools-inc.ejs %>
+                            <%-include ('../framework/apps/apps-inc.ejs') %>
+                                <%-include ('../framework/tools/nav-tools-inc.ejs') %>
                     </div>
                 </div>
             </main>
-            <%-include ../blocks/vendor.ejs %>
-                <%-include ../apps/app-test.ejs %>
+            <%-include ('../blocks/vendor.ejs') %>
+                <%-include ('../apps/app-test.ejs') %>
                     
     </body>
-    <%-include ../blocks/framework-scripts.ejs %>
+    <%-include ('../blocks/framework-scripts.ejs') %>
     <script>
 
             (() => {
