@@ -6,6 +6,6 @@ module.exports = router.get('/', (req, res) => {
   console.log('req.baseUrl')
   console.log(req.headers.host)
 
-  res.render('pages/home', { "title": 'Arte & Software', "req": req })
+  res.render('pages/home', { "title": 'Compra e venda de Aço', "req": req })
 
 })
