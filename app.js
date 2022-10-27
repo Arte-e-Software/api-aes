@@ -31,8 +31,7 @@ app.set('views', path.join(__dirname, '.', 'views'))
 // rotas - res.render
 app.get('/', require('./back-end/routes/home'))
 app.get('/framework', require('./back-end/routes/framework'))
-
-app.get('/foc/boleto', require('./back-end/routes/foc/boleto'))
+app.get('/login', require('./back-end/routes/login'))
 
 // rotas - res.send
 app.all('/api', require('./back-end/routes/api'))
