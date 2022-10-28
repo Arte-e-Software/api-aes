@@ -73,7 +73,8 @@
                     <label for="floatingSenha">Senha</label>
                 </div>
 
-                <button class="w-100 btn btn-lg btn-primary" type="button" id="btnAcessar">Acessar</button>
+                <button class="w-100 btn btn-lg btn-primary mb-2" type="button" id="btnAcessar">Acessar</button>
+                <button class="w-100 btn btn-lg btn-success" type="button" id="btnCadastrar">Cadastrar</button>
                 <p class="mt-5 mb-3 text-muted">&copy; 2006–2022</p>
             </form>
         </main>
@@ -82,12 +83,21 @@
             window.onload = () => {
 
                 let btnAcessar = document.getElementById('btnAcessar')
+                , btnCadastrar = document.getElementById('btnCadastrar')
 
                 btnAcessar.addEventListener('click', (event) => {
 
-                    event.preventDefault();
+                    event.preventDefault()
 
-                    document.location.assign('/dashboard');
+                    document.location.assign('/dashboard')
+
+                })
+
+                btnCadastrar.addEventListener('click', (event) => {
+
+                    event.preventDefault()
+
+                    document.location.assign('/cadastrar')
 
                 })
 
