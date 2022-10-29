@@ -90,5 +90,3 @@ function onListening() {
 }
 
 console.log(`Express    req   localhost:` + port);
-require('./socket.io')(server);
-console.log('Socket.io  call  localhost:' + port);

@@ -29,12 +29,9 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '.', 'views'))
 
 // rotas - res.render
-app.get('/', require('./back-end/routes/home'))
-app.get('/login', require('./back-end/routes/login'))
-app.get('/login', require('./back-end/routes/dashboard'))
-
-// rotas - res.send
-app.all('/api', require('./back-end/routes/api'))
+app.get('/', require('./back-end/routes/home-route'))
+app.get('/login', require('./back-end/routes/login-route'))
+app.get('/dashboard', require('./back-end/routes/dashboard-route'))
 
 // #issue: desenvolver o tratamento de errp http
 app.use((req, res, next) => { next(createError(404)) })
