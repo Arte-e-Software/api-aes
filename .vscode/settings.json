@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "useUTC": true,
+                "encrypt": true
+            },
+            "previewLimit": 50,
+            "server": "163.123.183.79",
+            "port": 12459,
+            "driver": "MSSQL",
+            "name": "CLOUD",
+            "database": "cotaaco",
+            "username": "aes",
+            "password": "3i0b0i8&a206958E"
+        }
+    ]
+}
