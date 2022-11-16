@@ -18,6 +18,7 @@ app.use(
         }
     })
 )
+app.disable('x-powered-by')
 
 // config express
 app.use(express.json())
