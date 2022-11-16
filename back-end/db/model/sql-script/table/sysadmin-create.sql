@@ -6,7 +6,7 @@ CREATE TABLE [dbo].[sysadmin] (
     [email]      VARCHAR (200) NOT NULL,
     [celular]    CHAR (12)     NOT NULL,
     [crdate]     DATETIME      NOT NULL,
-    [isacrive]   BIT           NOT NULL,
+    [isactive]   BIT           NOT NULL,
     CONSTRAINT [PK_sysadmin] PRIMARY KEY CLUSTERED ([sysadminid] ASC)
 );
 
