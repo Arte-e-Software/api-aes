@@ -4,6 +4,9 @@ const express = require('express')
     , path = require('path')
     , helmet = require('helmet')
     , app = express()
+    , cookieParser = require('cookie-parser')
+
+app.use(cookieParser())
 
 // config dotenv file
 require('dotenv').config({ path: process.env.NODE_ENV === 'dev' ? '.dev.env' : '.env' })
@@ -34,6 +37,7 @@ app.get('/', require('./back-end/routes/home-route'))
 app.get('/login', require('./back-end/routes/login-route'))
 app.get('/admin', require('./back-end/routes/admin-route'))
 app.get('/dashboard', require('./back-end/routes/dashboard-route'))
+app.post('/login/controller', require('./back-end/routes/login-controller-route'))
 
 app.all('/api', require('./back-end/routes/api-route'))
 
