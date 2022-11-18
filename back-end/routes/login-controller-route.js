@@ -30,7 +30,7 @@ module.exports = router.post('/login/controller', (req, res) => {
                 pw = '${hashPW}'
             AND 
                 isactive = 1
-                
+
         `
 
     sql.connect(db).then(() => { return sql.query(query) })
@@ -47,19 +47,13 @@ module.exports = router.post('/login/controller', (req, res) => {
                 , crdate = recordset.crdate
                 , isactive = recordset.isactive
 
-            // login ok
-            // criar o cookie
-            // criar o registro de login no banco
-            // manter a sessão via banco de dados com data, ip, etc
-
-            console.log('login ok')
+            res.status(200)
 
         })
         .catch(err => {
-            sql.close();
 
-            console.log('login fail')
-            res.send({ message: 'Dados Incorretos' })
+            sql.close()
+            res.status(500).send({ message: 'Dados Incorretos' })
 
         })
     sql.on('error', err => {
