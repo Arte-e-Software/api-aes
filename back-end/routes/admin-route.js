@@ -3,6 +3,6 @@ const express = require('express')
 
 module.exports = router.get('/admin', (req, res) => {
 
-  res.render('pages/admin-view', { "title": 'Compra e venda de Aço', "req": req })
+  res.render('pages/admin-view', { "title": 'Compra e venda de Aço' })
 
 })
