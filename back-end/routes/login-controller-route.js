@@ -47,6 +47,8 @@ module.exports = router.post('/login/controller', (req, res) => {
                 , crdate = recordset.crdate
                 , isactive = recordset.isactive
 
+            req.cookies.sysadminid = sysadminid
+
             res.status(200)
 
         })
