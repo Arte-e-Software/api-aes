@@ -47,20 +47,19 @@ module.exports = router.post('/login/controller', (req, res) => {
                 , crdate = recordset.crdate
                 , isactive = recordset.isactive
 
-            req.cookies.sysadminid = sysadminid
-
-            res.status(200)
+            console.log('login ok')
 
         })
         .catch(err => {
 
             sql.close()
-            res.status(500).send({ message: 'Dados Incorretos' })
+            console.log('login fail - dados')
 
         })
     sql.on('error', err => {
 
         console.log(err)
+        console.log('login fail - connection')
 
     })
 

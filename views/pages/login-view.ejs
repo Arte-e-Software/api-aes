@@ -98,9 +98,7 @@
                         } else {
 
                             axios.post('/login/controller', { login: login.value, pw: pw.value })
-                                .then(
-                                    document.location.assign('/admin')
-                                )
+
                                 .catch(err => {
                                     err = err.response.data
                                     let alertError = document.getElementById('alertError')

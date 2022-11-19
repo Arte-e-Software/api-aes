@@ -9,4 +9,3 @@ CREATE TABLE [dbo].[sysadmin] (
     [isactive]   BIT           NOT NULL,
     CONSTRAINT [PK_sysadmin] PRIMARY KEY CLUSTERED ([sysadminid] ASC)
 );
-
