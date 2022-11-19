@@ -42,10 +42,6 @@ module.exports = router.post('/login/controller', (req, res) => {
                 , login = recordset.login
                 , pw = recordset.pw
                 , nome = recordset.nome
-                , email = recordset.email
-                , celular = recordset.celular
-                , crdate = recordset.crdate
-                , isactive = recordset.isactive
 
             console.log('login ok')
 
