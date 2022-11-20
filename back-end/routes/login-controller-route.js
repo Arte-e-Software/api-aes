@@ -15,13 +15,6 @@ module.exports = router.post('/login/controller', (req, res) => {
         
             SELECT
                 sysadminid
-                ,login
-                ,pw   
-                ,nome 
-                ,email
-                ,celular
-                ,crdate
-                ,isactive
             FROM
                 sysadmin
             WHERE
@@ -36,27 +29,17 @@ module.exports = router.post('/login/controller', (req, res) => {
     sql.connect(db).then(() => { return sql.query(query) })
         .then(result => {
             sql.close();
-
-            let recordset = result.recordset[0]
-                , sysadminid = recordset.sysadminid
-                , login = recordset.login
-                , pw = recordset.pw
-                , nome = recordset.nome
-
-            console.log('login ok')
+            let sysadminid = result.recordset[0].sysadminid
+            res.redirect('/admin')
 
         })
         .catch(err => {
-
             sql.close()
-            console.log('login fail - dados')
+            res.status(402).send({ message: 'Dados incorretos' })
 
         })
     sql.on('error', err => {
-
-        console.log(err)
-        console.log('login fail - connection')
-
+        res.stats(402).send({ message: 'Erro no login' })
     })
 
 })
