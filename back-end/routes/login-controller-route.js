@@ -29,17 +29,22 @@ module.exports = router.post('/login/controller', (req, res) => {
     sql.connect(db).then(() => { return sql.query(query) })
         .then(result => {
             sql.close();
+
             let sysadminid = result.recordset[0].sysadminid
-            res.redirect('/admin')
+            res.render('pages/admin', { title: 'Cota Aço', login: true })
 
         })
         .catch(err => {
             sql.close()
-            res.status(402).send({ message: 'Dados incorretos' })
+
+            res.render('pages/login/', { title: 'Cota Aço', login: false })
 
         })
     sql.on('error', err => {
-        res.stats(402).send({ message: 'Erro no login' })
+
+        res.render('pages/login/', { title: 'Cota Aço', login: false })
+
     })
+
 
 })
