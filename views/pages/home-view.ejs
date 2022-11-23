@@ -1,18 +1,83 @@
 <!doctype html>
 <html lang="en">
 <%-include ('../blocks/head') %>
+
   <body>
-    <div class="px-4 py-5 my-5 text-center">
-      <img class="d-block mx-auto mb-4" src="../assets/images/brand/cotaaco.svg" alt="" width="72" height="57">
-      <h1 class="display-5 fw-bold">Centered hero</h1>
-      <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
-        </div>
-      </div>
+    <div class="container m-5"></div>
+    <form class="form-group" method="post" action="/login" id="formLogin">
+      <input class="form-control" type="text" id="login" name="login" required>
+      <br>
+      <input class="form-control" type="password" id="pw" name="pw" required>
+      <br>
+      <input class="btn btn-primary form-control" type="button" value="Ok" id="btnSubmit">
+    </form>
     </div>
+    <script>
+
+      window.onload = () => {
+
+        let formLogin = document.getElementById('formLogin')
+          , login = document.getElementById('login')
+          , pw = document.getElementById('pw')
+          , btnSubmit = document.getElementById('btnSubmit')
+
+        btnSubmit.addEventListener('click', event => {
+
+          event.preventDefault()
+
+          if (login.value === '' || pw.value === '') {
+
+            alert('Informe dados de acesso')
+
+          } else {
+
+            axios(
+              {
+                method: 'post',
+                url: '/login',
+                data: {
+                  login: login.value,
+                  pw: pw.value
+                }
+              }
+            )
+
+              .then((response) => {
+
+                if (response.data.token && response.data.logged) {
+
+                  document.cookie = `token=${response.data.token}`
+                  document.location.assign('/adm')
+
+                } else {
+
+                  if (response.data.message) {
+
+                    alert(response.data.message)
+
+                  } else (
+
+                    alert('Tente novamente.')
+
+                  )
+
+                }
+
+              })
+
+              .catch((err) => {
+
+                console.log(err)
+
+              })
+          }
+
+        })
+
+      }
+
+    </script>
   </body>
   <%-include ('../blocks/vendor.ejs') %>
+
 </html>
