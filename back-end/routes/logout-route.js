@@ -1,6 +1,5 @@
 const express = require('express')
     , router = express.Router()
-    , jwt = require('jsonwebtoken')
 
 module.exports = router.get('/logout', (req, res) => {
 
@@ -8,6 +7,5 @@ module.exports = router.get('/logout', (req, res) => {
         .clearCookie('token')
         .status(200)
         .redirect('/')
-
 
 })

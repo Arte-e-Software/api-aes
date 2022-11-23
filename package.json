@@ -20,6 +20,7 @@
         "prod": "NODE_ENV=prod"
     },
     "dependencies": {
+        "axios": "^1.2.0",
         "cookie-parser": "^1.4.6",
         "cors": "^2.8.5",
         "crypto-js": "^4.1.1",
@@ -31,6 +32,7 @@
         "jsonwebtoken": "^8.5.1",
         "mime-type": "^4.0.0",
         "morgan": "~1.9.1",
-        "mssql": "^8.1.4"
+        "mssql": "^8.1.4",
+        "nodemailer": "^6.8.0"
     }
 }

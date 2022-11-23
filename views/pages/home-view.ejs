@@ -3,80 +3,158 @@
 <%-include ('../blocks/head') %>
 
   <body>
-    <div class="container m-5"></div>
-    <form class="form-group" method="post" action="/login" id="formLogin">
-      <input class="form-control" type="text" id="login" name="login" required>
-      <br>
-      <input class="form-control" type="password" id="pw" name="pw" required>
-      <br>
-      <input class="btn btn-primary form-control" type="button" value="Ok" id="btnSubmit">
-    </form>
-    </div>
-    <script>
+    <main>
+      <div class="container m-5 ">
+        <form class="form-group" method="post" action="/login" id="formLogin">
+          <input class="form-control" type="text" id="login" name="login" required>
+          <br>
+          <input class="form-control" type="password" id="pw" name="pw" required>
+          <br>
+          <input class="btn btn-primary form-control" type="button" value="Ok" id="btnSubmit">
+          <br>
+          <br>
+          <a href="/recovery" data-bs-toggle="modal" data-bs-target="#esqueci">Esqueci minha senha</a>
+        </form>
+      </div>
+    </main>
 
-      window.onload = () => {
 
-        let formLogin = document.getElementById('formLogin')
-          , login = document.getElementById('login')
-          , pw = document.getElementById('pw')
-          , btnSubmit = document.getElementById('btnSubmit')
+    <!-- Modal -->
+    <div class="modal fade" id="esqueci" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Redefinição de senha</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form method="post" id="formEsqueciSenha" class="form-group">
+              <label for="email">Seu e-mail</label>
+              <input class="form-control" type="email" name="email" id="email" placeholder="nome@email.com" required>
+            </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-primary" id="btnRecovery">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        btnSubmit.addEventListener('click', event => {
 
-          event.preventDefault()
+      <script>
 
-          if (login.value === '' || pw.value === '') {
+        function login() {
 
-            alert('Informe dados de acesso')
+          let formLogin = document.getElementById('formLogin')
+            , login = document.getElementById('login')
+            , pw = document.getElementById('pw')
+            , btnSubmit = document.getElementById('btnSubmit')
 
-          } else {
+          btnSubmit.addEventListener('click', event => {
 
-            axios(
-              {
-                method: 'post',
-                url: '/login',
-                data: {
-                  login: login.value,
-                  pw: pw.value
+            event.preventDefault()
+
+            if (login.value === '' || pw.value === '') {
+
+              alert('Informe dados de acesso')
+
+            } else {
+
+              axios(
+                {
+                  method: 'post',
+                  url: '/login',
+                  data: {
+                    login: login.value,
+                    pw: pw.value
+                  }
                 }
-              }
-            )
+              )
 
-              .then((response) => {
+                .then((response) => {
 
-                if (response.data.token && response.data.logged) {
+                  if (response.data.token && response.data.logged) {
 
-                  document.cookie = `token=${response.data.token}`
-                  document.location.assign('/adm')
+                    document.cookie = `token=${response.data.token}`
+                    document.location.assign('/adm')
 
-                } else {
+                  } else {
 
-                  if (response.data.message) {
+                    if (response.data.message) {
 
-                    alert(response.data.message)
+                      alert(response.data.message)
 
-                  } else (
+                    } else (
 
-                    alert('Tente novamente.')
+                      alert('Tente novamente.')
 
-                  )
+                    )
 
+                  }
+
+                })
+
+                .catch((err) => {
+
+                  console.log(err)
+
+                })
+            }
+
+          })
+
+        }
+
+        function recovery() {
+
+          let btnRecovery = document.getElementById('btnRecovery')
+            , email = document.getElementById('email')
+
+          btnRecovery.addEventListener('click', event => {
+
+            event.preventDefault()
+            if (email.value === '') {
+
+              alert('Informe seu e-mail')
+
+            } else {
+
+              axios(
+                {
+                  method: 'post',
+                  url: '/recovery',
+                  data: {
+                    email: email.value
+                  }
                 }
+              )
 
-              })
+                .then((response) => {
 
-              .catch((err) => {
+                  console.log(response)
 
-                console.log(err)
+                })
 
-              })
-          }
+                .catch((err) => {
 
-        })
+                  console.log(err)
 
-      }
+                })
 
-    </script>
+            }
+
+          })
+
+        }
+
+        window.onload = () => {
+
+          login()
+          recovery()
+
+        }
+
+      </script>
   </body>
   <%-include ('../blocks/vendor.ejs') %>
 
