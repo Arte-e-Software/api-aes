@@ -25,7 +25,7 @@ module.exports = router.post('/recovery', (req, res) => {
 
             if (result.recordset.length > 0) {
 
-                let recoveryCode = Math.floor(Math.random() * 999999 - 100000) + 100000
+                let recoveryCode = Math.floor(Math.random() * 999999 - 199999) + 199999
 
 
                 // Bloco do email com nodemailer usando sendgrid
@@ -35,7 +35,7 @@ module.exports = router.post('/recovery', (req, res) => {
                         {
                             host: 'smtp.sendgrid.net',
                             port: 25,
-                            secure: false,
+                            secure: true,
                             auth: {
                                 user: 'apikey',
                                 pass: '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'
