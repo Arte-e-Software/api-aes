@@ -45,7 +45,7 @@ module.exports = router.post('/recovery', (req, res) => {
 
                     let info = await transporter.sendMail(
                         {
-                            from: 'aes.tec.br@gmail.com',
+                            from: 'pedro.com@me.com',
                             to: email,
                             subject: 'Código de recuperação de senha - CotaAço.com',
                             text: `Código: ${recoveryCode}`
