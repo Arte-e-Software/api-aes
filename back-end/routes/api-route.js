@@ -1,34 +1,49 @@
 const express = require('express')
 const router = express.Router()
-//const controllerError = require('../controller/controller-error')
-//const conn = require('../database/mssql/conn')
-//const sql = require('mssql')
+const controller = require('../controller')
 
-module.exports = router.all('/api', (req, res) => {
+module.exports = router.post('/api', (req, res) => {
 
-  /*
-    let error = controllerError(req.method, req.body)
+  // Só aceito os métodos GET e POST
 
-  if (error) {
+  let payload = req.body.payload
+    , erro = payload === ''
 
-    res.status(500).send(error)
+  if (erro) {
+
+    res.send({ mensagem: 'Payload vazio' })
 
   } else {
 
-    let payload = req.body
-      , block = payload.block
-      , module = payload.module
-      , params = payload.params
-      , db = conn['aes'] // #issue: tenant
-      , model = require(`../model/${block}/${module}`)
-      , query = model(params)
-
-    sql.connect(db).then(() => { return sql.query(query) })
-      .then(result => { sql.close(); res.status(200).send(result) })
-      .catch(err => { sql.close(); res.status(500).send(err) })
-    sql.on('error', err => { res.status(500).send(err) })
+    res.send(controller(payload))
 
   }
+
+  /**
+   * A estrutura das requisições devem ser:
+   * 
+   * A API aguarda um objeto chamado PAYLOAD E SÓ SUPORTA O MÉTODO POST
+   * 
+   * A rota trata PAYLOAD vazio ou ausente e retornar erro
+   * 
+   * O controller recebe o payload, chama o model, trata, e retornar para a rota tratar o res
+   * 
+   */
+
+  /*
+
+  payload = {
+   
+    entidade: "nome da entidade",
+    cruds: "operação de cruds solicitada",
+    data: {
+    "campos da entidade tratadas na operação cruds"
+    }
+  
+  }
+
   */
 
-})
+}
+
+)

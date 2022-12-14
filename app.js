@@ -48,10 +48,13 @@ app.set('views', path.join(__dirname, '.', 'views'))
 
 // rotas - res.render
 app.get('/', require('./back-end/routes/home-route'))
-app.get('/adm', loginRequired, require('./back-end/routes/adm-route'))
+app.get('/cotar', require('./back-end/routes/cotar-route'))
 app.post('/login', require('./back-end/routes/login-route'))
 app.get('/logout', require('./back-end/routes/logout-route'))
 app.post('/recovery', require('./back-end/routes/recovery'))
+
+// API
+app.post('/api', require('./back-end/routes/api-route'))
 
 // ISSUE ***
 // *** Tratar erros ***

@@ -41,7 +41,7 @@ module.exports = router.post('/login', (req, res) => {
         .catch(err => {
 
             sql.close();
-            res.json({ logged: false, message: 'Dados incorretos', token: undefined })
+            res.json({ logged: false, message: 'Erro ao conectar o servidor', token: undefined })
 
         })
 

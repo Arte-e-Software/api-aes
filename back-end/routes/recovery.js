@@ -1,5 +1,3 @@
-const { RIPEMD160 } = require('crypto-js')
-
 const express = require('express')
     , router = express.Router()
     , nodemailer = require('nodemailer')
@@ -26,7 +24,6 @@ module.exports = router.post('/recovery', (req, res) => {
             if (result.recordset.length > 0) {
 
                 let recoveryCode = Math.floor(Math.random() * 999999 - 199999) + 199999
-
 
                 // Bloco do email com nodemailer usando sendgrid
                 async function main() {
@@ -57,7 +54,6 @@ module.exports = router.post('/recovery', (req, res) => {
                 main()
                     .catch(console.error)
                 // fim do bloco email com nodemailer usando sendgrid
-
 
                 // Bloco do SMS com a Comtele
 
