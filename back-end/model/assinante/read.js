@@ -1,8 +1,19 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.id_assinante === '' || data.id_assinante === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível ler ASSINANTE, dados incompletos' as mensagem`
+
+    if (!erro) {
+
+        // pensar em trabalhar o EOF aqui #issue
+
+        query = `
         
         SELECT
+            0 as erro,
+            'Assinante localizado com sucesso.' as mensagem,
+            id_assinante,
             nome,
             cnpj,
             cep,
@@ -13,9 +24,11 @@ module.exports = payload => {
         FROM
             ASSINANTE
         WHERE
-            id_assinante = ${payload.data.id_assinante}
+            id_assinante = ${data.id_assinante}
 
 `
+
+    }
 
     return query
 

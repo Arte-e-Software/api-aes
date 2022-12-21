@@ -1,30 +1,40 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.id_superficie === '' || data.id_superficie === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível ler SUPERFICIE, dados incompletos' as mensagem`
+
+    if (!erro) {
+
+        // pensar em trabalhar o EOF aqui #issue
+
+        query = `
         
         SELECT
-            id_superficie,    
+            0 as erro,
+            'SUPERFICIE localizada com sucesso.' as mensagem,
+            id_superficie,
             id_material,
             nome,
             crdate,
-            isactive,
+            isactive 
         FROM
             SUPERFICIE
         WHERE
-            ID_SUPERFICIE = ${payload.data.id_superficie}
+            id_superficie = ${data.id_superficie}
 
 `
+
+    }
 
     return query
 
 }
 
 /*
-CREATE TABLE [dbo].[superficie] (
-    [id_superficie] INT           IDENTITY (1, 1) NOT NULL,
-    [id_material]   INT           NOT NULL,
-    [nome]          VARCHAR (100) NOT NULL,
-    [crdate]        DATETIME      NOT NULL,
-    [isactive]      BIT           NOT NULL
-);
+id_superficie
+id_material
+nome
+crdate
+isactive
 */

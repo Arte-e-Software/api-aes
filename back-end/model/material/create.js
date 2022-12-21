@@ -1,36 +1,51 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.nome === '' || data.nome === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível gravar material, dados incompletos.'`
+
+    if (!erro) {
+
+        query = `
 
         BEGIN TRAN
         INSERT INTO MATERIAL VALUES
         (
         '${payload.data.nome}',
         GETDATE(),
-        0
+        1
         )
         IF @@ERROR = 0
         BEGIN
-            SELECT @@IDENTITY AS ID_MATERIAL
+            SELECT 
+                0 as erro,
+                'Material cadastrado com sucesso' as mensagem,
+                @@IDENTITY AS id_material,
+                nome,
+                crdate,
+                isactive
+            FROM
+                MATERIAL
+            WHERE
+                id_material = @@IDENTITY
             COMMIT TRAN
         END
         ELSE
         BEGIN
-            SELECT 0 AS ID_MATERIAL
-            ROLLBACK TRAN
+            SELECT 1 AS erro, 'Não foi possível gravar material, tente novamente'    
+        ROLLBACK TRAN
         END
+ 
 
 `
+        return query
 
-    return query
-
+    }
 }
 
 /*
-CREATE TABLE [dbo].[material] (
-    [id_material] INT           IDENTITY (1, 1) NOT NULL,
-    [nome]        VARCHAR (200) NOT NULL,
-    [crdate]      DATETIME      NOT NULL,
-    [isactive]    BIT           NOT NULL
-);
+id_material
+nome
+crdate
+isactive
 */

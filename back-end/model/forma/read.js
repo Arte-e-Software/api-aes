@@ -1,32 +1,42 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.id_forma === '' || data.id_forma === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível ler FORMA, dados incompletos' as mensagem`
+
+    if (!erro) {
+
+        // pensar em trabalhar o EOF aqui #issue
+
+        query = `
         
         SELECT
+            0 as erro,
+            'FORMA localizada com sucesso.' as mensagem,
             id_forma,
             id_material,
             nome,
-            comprimento,
+            tem_comprimento,
             crdate,
-            isactive,
+            isactive
         FROM
             FORMA
         WHERE
-            ID_FORMA = ${payload.data.id_forma}
+            id_forma = ${data.id_forma}
 
 `
+
+    }
 
     return query
 
 }
 
 /*
-CREATE TABLE [dbo].[forma] (
-    [id_forma]    INT           IDENTITY (1, 1) NOT NULL,
-    [id_material] INT           NOT NULL,
-    [nome]        VARCHAR (100) NOT NULL,
-    [comprimento] BIT           NOT NULL,
-    [crdate]      DATETIME      NOT NULL,
-    [isactive]    BIT           NOT NULL
-);
+id_forma
+id_material
+nome
+tem_comprimento
+crdate
+isactive
 */

@@ -1,8 +1,13 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.id_material === '' || data.id_material === undefined || data.nome === '' || data.nome === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível gravar forma, dados incompletos.'`
 
-        DECLARE @ID_COMPRADOR INT
+    if (!erro) {
+
+        query = `
+
         BEGIN TRAN
         INSERT INTO FORMA VALUES
         (
@@ -14,29 +19,43 @@ module.exports = payload => {
         )
         IF @@ERRO = 0
         BEGIN
-            SELECT @@IDENTITY AS ID_FORMA
+            SELECT 
+            0 as erro,
+            'Forma cadastradas com sucesso' as mensagem,
+            @@IDENTITY AS ID_FORMA,
+            id_material,
+            nome,
+            tem_comprimento,
+            crdate,
+            isactive
+            FROM
+            FORMA
+            WHERE
+            id_forma = @@IDENTITY
+
             COMMIT TRAN
         END
         ELSE
         BEGIN
-            SELECT 0 AS ID_FORMA
+            SELECT
+            1 as erro, 
+            'Não foi possível gravar forma, tente novamente'
             ROLLBACK TRAN
         END
 
+
 `
+    }
 
     return query
 
 }
 
 /*
-CREATE TABLE [dbo].[forma] (
-    [id_forma]    INT           IDENTITY (1, 1) NOT NULL,
-    [id_material] INT           NOT NULL,
-    [nome]        VARCHAR (100) NOT NULL,
-    [comprimento] BIT           NOT NULL,
-    [crdate]      DATETIME      NOT NULL,
-    [isactive]    BIT           NOT NULL
-);
-
+id_forma
+id_material
+nome
+tem_comprimento
+crdate
+isactive
 */

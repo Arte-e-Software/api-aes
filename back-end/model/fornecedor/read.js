@@ -1,28 +1,38 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.id_fornecedor === '' || data.id_fornecedor === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível ler FORNECEDOR, dados incompletos' as mensagem`
+
+    if (!erro) {
+
+        // pensar em trabalhar o EOF aqui #issue
+
+        query = `
         
         SELECT
+            0 as erro,
+            'FORNECEDOR localizada com sucesso.' as mensagem,
             id_fornecedor,
             id_assinante,
             crdate,
-            isactive,
+            isactive
         FROM
             FORNECEDOR
         WHERE
-            ID_FORNECEDOR = ${payload.data.id_fornecedor}
+            id_fornecedor = ${data.id_fornecedor}
 
 `
+
+    }
 
     return query
 
 }
 
 /*
-CREATE TABLE [dbo].[fornecedor] (
-    [id_fornecedor] INT      IDENTITY (1, 1) NOT NULL,
-    [id_assinante]  INT      NOT NULL,
-    [crdate]        DATETIME NOT NULL,
-    [isactive]      BIT      NOT NULL
-);
+id_fornecedor
+id_assinante
+crdate
+isactive
 */

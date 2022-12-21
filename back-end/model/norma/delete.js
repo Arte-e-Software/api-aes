@@ -1,35 +1,29 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.id_norma === '' || data.id_norma === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível excluir a NORMA, dados incompletos.' as mensagem`
 
-        BEGIN TRAN
-        UPDATE NORMA SET
-        ISACTIVE = 0
-        WHERE
-        ID_NORMA = ${payload.data.id_norma}
-        IF @@ERRO = 0
-        BEGIN
-            SELECT ${payload.data.id_norma} AS ID_NORMA
-            COMMIT TRAN
-        END
-        ELSE
-        BEGIN
-            SELECT 0 AS ID_NORMA
-            ROLLBACK TRAN
-        END
+    if (!erro) {
 
-`
+        query = `
+            
+                BEGIN TRAN
+                UPDATE NORMA SET ISACTIVE = 0 WHERE id_norma = ${data.id_norma}
+                IF @@ERROR = 0
+                BEGIN
+                    SELECT 0 AS erro, 'NORMA excluída com sucesso.' as mensagem
+                    COMMIT TRAN
+                END
+                ELSE
+                BEGIN
+                    SELECT 1 AS erro, 'Não foi possível excluir a NORMA, tente novamente.' as mensagem
+                    ROLLBACK TRAN
+                END
+            `
+
+    }
 
     return query
 
 }
-
-/*
-CREATE TABLE [dbo].[norma] (
-    [id_norma]    INT           IDENTITY (1, 1) NOT NULL,
-    [id_material] INT           NOT NULL,
-    [nome]        VARCHAR (100) NOT NULL,
-    [crdate]      DATETIME      NOT NULL,
-    [isactive]    BIT           NOT NULL
-);
-*/

@@ -1,30 +1,40 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.id_norma === '' || data.id_norma === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível ler NORMA, dados incompletos' as mensagem`
+
+    if (!erro) {
+
+        // pensar em trabalhar o EOF aqui #issue
+
+        query = `
         
         SELECT
-            id_norma,    
+            0 as erro,
+            'NORMA localizada com sucesso.' as mensagem,
+            id_norma,
             id_material,
             nome,
             crdate,
-            isactive,
+            isactive
         FROM
             NORMA
         WHERE
-            ID_NORMA = ${payload.data.id_norma}
+            id_norma = ${data.id_norma}
 
 `
+
+    }
 
     return query
 
 }
 
 /*
-CREATE TABLE [dbo].[norma] (
-    [id_norma]    INT           IDENTITY (1, 1) NOT NULL,
-    [id_material] INT           NOT NULL,
-    [nome]        VARCHAR (100) NOT NULL,
-    [crdate]      DATETIME      NOT NULL,
-    [isactive]    BIT           NOT NULL
-);
+id_norma
+id_material
+nome
+crdate
+isactive
 */

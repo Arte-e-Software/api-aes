@@ -1,24 +1,29 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.id_comprador === '' || data.id_comprador === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível excluir o comprador. Dados incompletos' as mensagem`
+
+    if (!erro) {
+
+        query = `
 
         BEGIN TRAN
-        UPDATE COMPRADOR SET
-            ISACTIVE = 0
-        WHERE
-            ID_COMPRADOR = ${payload.data.id_comprador}
-        IF @@ERRO = 0
+        UPDATE COMPRADOR SET ISACTIVE = 0 WHERE id_comprador = ${data.id_comprador}
+        IF @@ERROR = 0
         BEGIN
-            SELECT ${payload.data.id_comprador} AS ID_COMPRADOR
+            SELECT 0 AS erro, 'Comprador excluído com sucesso' as mensagem
             COMMIT TRAN
         END
         ELSE
         BEGIN
-            SELECT 0 AS ID_COMPRADOR
+            SELECT 0 AS erro, 'Não foi possível excluir o comprador. Tente novamente.' as mensagem
             ROLLBACK TRAN
         END
 
 `
+    }
+
 
     return query
 

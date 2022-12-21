@@ -1,28 +1,38 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.id_material === '' || data.id_material === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível ler MATERIAL, dados incompletos' as mensagem`
+
+    if (!erro) {
+
+        // pensar em trabalhar o EOF aqui #issue
+
+        query = `
         
         SELECT
+            0 as erro,
+            'MATERIAL localizada com sucesso.' as mensagem,
             id_material,
             nome,
             crdate,
-            isactive,
+            isactive
         FROM
             MATERIAL
         WHERE
-            ID_MATERIAL = ${payload.data.id_material}
+            id_material = ${data.id_material}
 
 `
+
+    }
 
     return query
 
 }
 
 /*
-CREATE TABLE [dbo].[material] (
-    [id_material] INT           IDENTITY (1, 1) NOT NULL,
-    [nome]        VARCHAR (200) NOT NULL,
-    [crdate]      DATETIME      NOT NULL,
-    [isactive]    BIT           NOT NULL
-);
+id_material
+nome
+crdate
+isactive
 */

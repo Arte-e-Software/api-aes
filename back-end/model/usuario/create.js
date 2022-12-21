@@ -1,44 +1,64 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.id_assinante === '' || data.id_assinante === undefined || data.nome === '' || data.nome === undefined || data.cpf === '' || data.cpf === undefined || data.email === '' || data.email === undefined || data.celular === '' || data.celular === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível gravar usuário, dados incompletos.' as mensagem`
+
+    if (!erro) {
+
+        query = `
 
         BEGIN TRAN
         INSERT INTO USUARIO VALUES
         (
-            ${payload.data.id_assinante},
-            '${payload.data.nome}',
-            '${payload.data.cpf}',
-            '${payload.data.email}',
-            '${payload.data.celular}',
+            ${data.id_assinante},
+            '${data.nome}',
+            '${data.cpf}',
+            '${data.email}',
+            '${data.celular}',
             GETDATE(),
-            0
+            1
         )
         IF @@ERRO = 0
         BEGIN
-            SELECT @@IDENTITY AS ID_USUARIO
+            SELECT 
+                0 AS erro,
+                'Usuário cadastrado com sucesso' as mensagem,
+                @@IDENTITY AS id_usuario,
+                id_assinante,
+                nome,
+                cpf,
+                email,
+                celular,
+                crdate,
+                isactive
+            FROM
+                USUARIO
+            WHERE
+                id_usuario = @@IDENTITY
             COMMIT TRAN
         END
         ELSE
         BEGIN
-            SELECT 0 AS ID_USUARIO
+            SELECT 1 AS erro, 'Não foi possível cadastrar usuário, tente novamente' as mensagem
             ROLLBACK TRAN
         END
 
 `
+
+    }
 
     return query
 
 }
 
 /*
-CREATE TABLE [dbo].[usuario] (
-    [id_usuario]   INT           IDENTITY (1, 1) NOT NULL,
-    [id_assinante] INT           NOT NULL,
-    [nome]         VARCHAR (200) NOT NULL,
-    [cpf]          CHAR (11)     NOT NULL,
-    [email]        VARCHAR (200) NOT NULL,
-    [celular]      CHAR (14)     NOT NULL,
-    [crdate]       DATETIME      NOT NULL,
-    [isactive]     BIT           NOT NULL
-);
+id_usuario
+id_assinante
+nome
+cpf
+email
+celular
+crdate
+isactive
 */

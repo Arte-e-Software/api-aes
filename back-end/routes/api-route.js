@@ -11,11 +11,11 @@ module.exports = router.post('/api', (req, res) => {
 
   if (erro) {
 
-    res.send({ mensagem: 'Payload vazio' })
+    res.json({ mensagem: 'Payload vazio' })
 
   } else {
 
-    res.send(controller(payload))
+    controller(payload, res)
 
   }
 

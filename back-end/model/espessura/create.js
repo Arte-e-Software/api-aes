@@ -1,28 +1,49 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.id_material === '' || data.id_material === undefined || data.unidade === '' || data.unidade === undefined || data.valor === '' || data.valor === undefined
+        , query = `SELECT 1 as erro, 'Erro ao cadastrar assinante, dados incompletos' as mensagem`
 
-        BEGIN TRAN
-        INSERT INTO ESPESSURA VALUES
-        (
-            ${payload.data.id_material},
-            '${payload.data.unidade}',
-            ${payload.data.valor},
-            GETDATE(),
-            0
-        )
-        IF @@ERRO = 0
-        BEGIN
-            SELECT @@IDENTITY AS ID_ESPESSURA
+
+    if (!erro) {
+
+        query = `
+
+            BEGIN TRAN
+            INSERT INTO ESPESSURA VALUES
+            (
+                ${data.id_material},
+                '${data.unidade}',
+                ${data.valor},
+                GETDATE(),
+                0
+            )
+            IF @@ERRO = 0
+            BEGIN
+                SELECT 
+                0 as erro, 
+                'Espessura cadastrada com sucesso' as mensagem,
+                @@IDENTITY AS id_espessura,
+                id_material,
+                unidade,
+                valor,
+                crdate,
+                isactive
+            FROM
+            ESPESSURA
+            WHERE
+            id_espessura = @@IDENTITY
             COMMIT TRAN
-        END
-        ELSE
-        BEGIN
-            SELECT 0 AS ID_ESPESSURA
-            ROLLBACK TRAN
-        END
+            END
+            ELSE
+            BEGIN
+                SELECT 0 AS ID_ESPESSURA
+                ROLLBACK TRAN
+            END
 
-`
+    `
+
+    }
 
     return query
 

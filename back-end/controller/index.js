@@ -1,7 +1,7 @@
 const sql = require('mssql')
     , conn = require('../db/conn')['db_08310130000132']
 
-function controller(payload) {
+function controller(payload, res) {
 
     let entidade = payload.entidade
         , cruds = payload.cruds
@@ -12,16 +12,17 @@ function controller(payload) {
     })
         .then(result => {
             sql.close();
-            return result
+            res.json(result)
         })
         .catch(err => {
             sql.close();
             console.log(err)
-            return err
+            res.json({ erro: 1, mensagem: "Ocorreu um erro ao tentar gravar o registro. Tente novamente." })
         })
 
     sql.on('error', err => {
-        return err
+        console.log(err)
+        res.json({ erro: 1, mensagem: "Não foi possível conectar o banco de dados. Tente novamente." })
     })
 
 }

@@ -1,8 +1,18 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.id_espessura === '' || data.id_espessura === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível ler ESPESSURA, dados incompletos' as mensagem`
+
+    if (!erro) {
+
+        // pensar em trabalhar o EOF aqui #issue
+
+        query = `
         
         SELECT
+            0 as erro,
+            'ESPESSURA localizada com sucesso.' as mensagem,
             id_espessura,
             id_material,
             unidade,
@@ -12,22 +22,21 @@ module.exports = payload => {
         FROM
             ESPESSURA
         WHERE
-            ID_ESPESSURA = ${payload.data.id_espessura}
+            id_espessura = ${data.id_espessura}
 
 `
+
+    }
 
     return query
 
 }
 
 /*
-CREATE TABLE [dbo].[espessura] (
-    [id_espessura] INT      IDENTITY (1, 1) NOT NULL,
-    [id_material]  INT      NOT NULL,
-    [unidade]      CHAR (2) NOT NULL,
-    [valor]        INT      NOT NULL,
-    [crdate]       DATETIME NOT NULL,
-    [isactive]     BIT      NOT NULL
-);
-
+id_espessura
+id_material
+unidade
+valor
+crdate
+isactive
 */

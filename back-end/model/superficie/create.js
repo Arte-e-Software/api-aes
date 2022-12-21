@@ -1,38 +1,56 @@
 module.exports = payload => {
 
-    query = `
+
+    let data = payload.data
+        , erro = data.id_material === '' || data.id_material === undefined || data.nome === '' || data.nome === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível cadastrar superfície, dados incompletos.' as mensagem`
+
+    if (!erro) {
+
+        query = `
 
         BEGIN TRAN
         INSERT INTO SUPERFICIE VALUES
         (
-        ${payload.data.id_material},
-        '${payload.data.nome}',
+        ${data.id_material},
+        '${data.nome}',
         GETDATE(),
-        0
+        1
         )
         IF @@ERRO = 0
         BEGIN
-            SELECT @@IDENTITY AS ID_SUPERFICIE
+           SELECT 
+           0 AS erro,
+           'Superfície cadastrada com sucesso' as mensagem,
+            @@IDENTITY AS id_superficie,
+            id_material,
+            nome,
+            crdate,
+            isactive
+        FROM
+            SUPERFICIE
+        WHERE
+            id_superficie = @@IDENTITY
             COMMIT TRAN
         END
         ELSE
         BEGIN
-            SELECT 0 AS ID_SUPERFICIE
+            SELECT 1 AS erro, 'Não foi possível cadastrar superficie. Tente novamente.' as mensagem
             ROLLBACK TRAN
         END
 
 `
+
+    }
 
     return query
 
 }
 
 /*
-CREATE TABLE [dbo].[superficie] (
-    [id_superficie] INT           IDENTITY (1, 1) NOT NULL,
-    [id_material]   INT           NOT NULL,
-    [nome]          VARCHAR (100) NOT NULL,
-    [crdate]        DATETIME      NOT NULL,
-    [isactive]      BIT           NOT NULL
-);
+id_superficie
+id_material
+nome
+crdate
+isactive
 */

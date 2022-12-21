@@ -1,8 +1,18 @@
 module.exports = payload => {
 
-    query = `
+    let data = payload.data
+        , erro = data.id_usuario === '' || data.id_usuario === undefined
+        , query = `SELECT 1 AS erro, 'Não foi possível ler USUARIO, dados incompletos' as mensagem`
+
+    if (!erro) {
+
+        // pensar em trabalhar o EOF aqui #issue
+
+        query = `
         
         SELECT
+            0 as erro,
+            'USUARIO localizado com sucesso.' as mensagem,
             id_usuario,
             id_assinante,
             nome,
@@ -10,27 +20,27 @@ module.exports = payload => {
             email,
             celular,
             crdate,
-            isactive
+            isactive            
         FROM
             USUARIO
         WHERE
-            ID_USUARIO = ${payload.data.id_usuario}
+            id_usuario = ${data.id_usuario}
 
 `
+
+    }
 
     return query
 
 }
 
 /*
-CREATE TABLE [dbo].[usuario] (
-    [id_usuario]   INT           IDENTITY (1, 1) NOT NULL,
-    [id_assinante] INT           NOT NULL,
-    [nome]         VARCHAR (200) NOT NULL,
-    [cpf]          CHAR (11)     NOT NULL,
-    [email]        VARCHAR (200) NOT NULL,
-    [celular]      CHAR (14)     NOT NULL,
-    [crdate]       DATETIME      NOT NULL,
-    [isactive]     BIT           NOT NULL
-);
+id_usuario
+id_assinante
+nome
+cpf
+email
+celular
+crdate
+isactive
 */
