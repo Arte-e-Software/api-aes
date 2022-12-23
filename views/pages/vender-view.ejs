@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-br">
+<%-include ('../blocks/head') %>
+
+    <body>
+
+        <main>
+
+            <div class="container">
+                <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                    <a href="/comprar"
+                        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                        <img src="assets/images/brand/cotaaco-logo.svg" width="200">
+                    </a>
+
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"><a href="#" class="nav-link">Clientes</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Cotações</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Propostas</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Pedidos</a></li>
+                    </ul>
+                </header>
+            </div>
+            <div class="container">
+                <h4>Área do vendedor</h4>
+            </div>
+            <div class="container" id="workarea" style="display:none">
+
+            </div>
+
+        </main>
+
+    </body>
+
+    <%-include ('../blocks/vendor.ejs') %>
+
+</html>

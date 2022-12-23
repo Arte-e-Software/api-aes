@@ -3,6 +3,8 @@ const sql = require('mssql')
 
 function controller(payload, res) {
 
+    // Tratar a duplicidade de registro #issue
+
     let entidade = payload.entidade
         , cruds = payload.cruds
         , model = require(`../model/${entidade}/${cruds}`)(payload)
