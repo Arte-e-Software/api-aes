@@ -44,11 +44,52 @@
     <option value="0">Novo</option>
 </select>
 Observações
-<textarea class="form-control" rows="3">
+<textarea class="form-control mb-2" rows="3">
 
 </textarea>
-<button class="btn btn-primary btn-lg">Enviar Cotação</button>
+<button class="btn btn-primary">Enviar Cotação</button>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Exemplo de caixa que abrirá para o comprador inserir uma especificação que ainda não exista no sistema
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">TIPO</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control" placeholder="Informe o TIPO do material">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
+
+    window.onload = () => {
+
+        let idTipo = document.getElementById(id_tipo)
+
+        idTipo.addEventListener('change', () => {
+
+            event.preventDefault()
+
+
+
+        })
+
+    }
 
 
 </script>
