@@ -23,8 +23,13 @@
       <div class="container">
         <h4 class="text-primary">Área do comprador</h4>
       </div>
-      <div class="container" id="workarea" style="display:none">
+      <div class="container border border-1 rounded p-2" id="workarea" style="display:block">
+        <form method="post">
+          <h5>Cotar <strong>AÇO</strong></h5>
 
+          <%-include ('./codigo-material.ejs') %>
+
+        </form>
       </div>
 
     </main>

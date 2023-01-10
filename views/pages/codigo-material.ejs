@@ -1,0 +1,68 @@
+<div class="container">
+    <p>
+        Inicie sua cotação informando o código do seu produto, caso não tenha, tudo bem, nós criamos um para você. Isso
+        facilitará cotações futuras.
+    </p>
+</div>
+<input type="hidden" id="id_material" name="id_material" value="1">
+<input type="text" class="form-control mb-2" id="codigo_material" name="codigo_material" maxlength="50"
+    placeholder="Código do Material (máx 50 caracteres)">
+<input type="text" class="form-control mb-2" id="peso_desejado" name="peso_desejado" maxlength="50"
+    placeholder="Peso Desejado (em toneldas)">
+<input type="date" class="form-control mb-2" id="prazo_de_entrega_desejado" name="prazo_de_entrega_desejado"
+    maxlength="50" placeholder="Prazo de Entrega Desejado">
+<select class="form-control mb-2" id="id_tipo" name="id_tipo">
+    <option value="-1">Escolha o Tipo</option>
+    <option value="0">Novo</option>
+</select>
+<select class="form-control mb-2" id="id_forma" name="id_forma">
+    <option value="-1">Escolha a Forma</option>
+    <option value="0">Novo</option>
+</select>
+<select class="form-control mb-2" id="id_espessura" name="id_espessura">
+    <option value="-1">Escolha a Espessura</option>
+    <option value="0">Novo</option>
+</select>
+<select class="form-control mb-2" id="id_largura" name="id_largura">
+    <option value="-1">Escolha a Largura</option>
+    <option value="0">Novo</option>
+</select>
+<select class="form-control mb-2" id="id_norma" name="id_norma">
+    <option value="-1">Escolha a Norma</option>
+    <option value="0">Novo</option>
+</select>
+<select class="form-control mb-2" id="id_revestimento" name="id_revestimento">
+    <option value="-1">Escolha o Revestimento</option>
+    <option value="0">Novo</option>
+</select>
+<select class="form-control mb-2" id="id_superficie" name="id_superficie">
+    <option value="-1">Escolha a Superfície</option>
+    <option value="0">Novo</option>
+</select>
+<select class="form-control mb-2" id="id_comprimento" name="id_comprimento">
+    <option value="-1">Escolha o Comprimento (opcional)</option>
+    <option value="0">Novo</option>
+</select>
+Observações
+<textarea class="form-control" rows="3">
+
+</textarea>
+<script>
+
+
+</script>
+<!--
+
+    [id_comprador] [int] NOT NULL,
+	[id_material] [int] NOT NULL,
+	[codigo_material] [varchar](50) NOT NULL,
+	[id_tipo] [int] NOT NULL,
+	[id_forma] [int] NOT NULL,
+	[id_comprimento] [int] NULL,
+	[id_espessura] [int] NOT NULL,
+	[id_largura] [int] NOT NULL,
+	[id_norma] [int] NOT NULL,
+	[id_revestimento] [int] NOT NULL,
+	[id_superficie] [int] NOT NULL,
+
+    -->
