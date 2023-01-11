@@ -1,0 +1,46 @@
+<!-- MODAL CADASTRO EMPRESA INICIO -->
+
+<div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h4 class="modal-title" id="modalLoginLabel">Acesso à Área de Negócios</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-2">
+                        <label for="cnpj" class="form-label">CNPJ (somente números)</label>
+                        <input type="number" class="form-control" id="cnpj" name="cnpj">
+                    </div>
+                    <div class="mb-2">
+                        <label for="cep" class="form-label">CPF (somente números)</label>
+                        <input type="number" class="form-control" id="cep" name="cep">
+                    </div>
+                    <div class="mb-2">
+                        <label for="cep" class="form-label">Token (aguarde, será enviado por SMS para o celular
+                            cadastrado)</label>
+                        <input type="number" class="form-control" id="token" name="token">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <a href="/comprar"><button type="button" class="btn btn-success">Acessar</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL CADASTRO EMPRESA FIM -->
+
+<!--
+    [nome] [varchar](200) NOT NULL,
+	[categoria] [varchar] (50) NOT NULL,
+    [cnpj] [char](14) NOT NULL,
+	[cep] [char](8) NOT NULL,
+	[cidade] [varchar](100) NOT NULL,
+	[uf] [char](2) NOT NULL,
+	[telefone] [varchar] (15) NOT  NULL,
+    [email] [varchar] (200) NOT NULL,    
+-->

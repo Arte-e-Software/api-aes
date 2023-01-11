@@ -19,7 +19,8 @@
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <button type="button" class="btn btn-primary btn-lg px-4 gap-3" data-bs-toggle="modal"
               data-bs-target="#modalCadastro">Cadastro Grátis</button>
-            <button type="button" class="btn btn-success btn-lg px-4">Área de Negócios</button>
+            <button type="button" class="btn btn-success btn-lg px-4" data-bs-toggle="modal"
+              data-bs-target="#modalLogin">Área de Negócios</button>
           </div>
         </div>
       </div>
@@ -34,6 +35,7 @@
       </footer>
 
       <%-include ('../blocks/modal-cadastro.ejs') %>
+        <%-include ('../blocks/modal-login.ejs') %>
 
     </main>
   </body>
