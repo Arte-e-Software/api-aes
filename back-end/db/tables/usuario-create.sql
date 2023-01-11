@@ -9,6 +9,7 @@ CREATE TABLE [dbo].[usuario](
 	[cpf] [char](11) NOT NULL,
 	[email] [varchar](200) NOT NULL,
 	[celular] [char](14) NOT NULL,
+	[master] [bit] NOT NULL,
 	[crdate] [datetime] NOT NULL,
 	[isactive] [bit] NOT NULL
 ) ON [PRIMARY]

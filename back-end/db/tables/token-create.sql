@@ -8,7 +8,6 @@ CREATE TABLE [dbo].[token](
 	[token] [char](6) NOT NULL,
 	[hash] [char](64) NOT NULL,
 	[validade] [datetime] NOT NULL,
-	[data_uso] [datetime] NOT NULL,
 	[crdate] [datetime] NOT NULL,
 	[isactive] [bit] NOT NULL
 ) ON [PRIMARY]

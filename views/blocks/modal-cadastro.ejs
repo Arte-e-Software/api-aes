@@ -1,0 +1,78 @@
+<!-- MODAL CADASTRO EMPRESA INICIO -->
+
+<div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h4 class="modal-title" id="modalCadastroLabel">Cadastro</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-2">
+                        <label for="nome" class="form-label">Nome da Empresa</label>
+                        <input type="text" class="form-control" id="nome" name="nome">
+                    </div>
+                    <div class="mb-2">
+                        <label for="cnpj" class="form-label">CNPJ (somente números)</label>
+                        <input type="number" class="form-control" id="cnpj" name="cnpj">
+                    </div>
+                    <div class="mb-2">
+                        <label for="cep" class="form-label">CEP (somente números)</label>
+                        <input type="number" class="form-control" id="cep" name="cep">
+                    </div>
+                    <div class="mb-2">
+                        <label for="cep" class="form-label">Cidade</label>
+                        <input type="text" class="form-control" id="cidade" name="cidade">
+                    </div>
+                    <div class="mb-2">
+                        <label for="cep" class="form-label">Estado</label>
+                        <input type="text" class="form-control" id="uf" name="uf" maxlength="2">
+                    </div>
+                    <div class="mb-2">
+                        <label for="telefone" class="form-label">Telefone (somente números)</label>
+                        <input type="number" class="form-control" id="telefone" name="telefone" maxlength="14"
+                            placeholder="Somente números">
+                    </div>
+                    <div class="mb-2">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" maxlength="100">
+                    </div>
+                    <div class="mb-2">
+                        <label for="categoria" class="form-label">Categoria</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categoria" id="fornecedor">
+                            <label class="form-check-label" for="fornecedor">
+                                Fornecedor
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categoria" id="comprador" checked>
+                            <label class="form-check-label" for="comprador">
+                                Comprador
+                            </label>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL CADASTRO EMPRESA FIM -->
+
+<!--
+    [nome] [varchar](200) NOT NULL,
+	[categoria] [varchar] (50) NOT NULL,
+    [cnpj] [char](14) NOT NULL,
+	[cep] [char](8) NOT NULL,
+	[cidade] [varchar](100) NOT NULL,
+	[uf] [char](2) NOT NULL,
+	[telefone] [varchar] (15) NOT  NULL,
+    [email] [varchar] (200) NOT NULL,    
+-->

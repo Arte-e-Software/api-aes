@@ -4,157 +4,37 @@
 
   <body>
     <main>
-      <div class="container m-5 ">
-        <form class="form-group" method="post" action="/login" id="formLogin">
-          <input class="form-control" type="text" id="login" name="login" required>
-          <br>
-          <input class="form-control" type="password" id="pw" name="pw" required>
-          <br>
-          <input class="btn btn-primary form-control" type="button" value="Ok" id="btnSubmit">
-          <br>
-          <br>
-          <a href="/recovery" data-bs-toggle="modal" data-bs-target="#esqueci">Esqueci minha senha</a>
-        </form>
-      </div>
-    </main>
 
-
-    <!-- Modal -->
-    <div class="modal fade" id="esqueci" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Redefinição de senha</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form method="post" id="formEsqueciSenha" class="form-group">
-              <label for="email">Seu e-mail</label>
-              <input class="form-control" type="email" name="email" id="email" placeholder="nome@email.com" required>
-            </form>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-              <button type="button" class="btn btn-primary" id="btnRecovery">Enviar</button>
-            </div>
+      <div class="px-4 py-5 text-center">
+        <img class="d-block mx-auto mb-5" src="assets/images/brand/logo-cotaaco.svg"" alt="" width=" 360">
+        <h1 class="display-5 fw-bold">Faça bons negócios</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">A CotaAço é a primeira plataforma brasileira de negócios B2B que vem para revolucionar o
+            comércio de aço no país. Tudo num único lugar. Compradores fazem cotações, comparam preços e condições.
+            Fornecedores atendem diversos compradores. Simples e prático. Cadastre sua empresa agora mesmo e nunca mais
+            perca a oportunidade de fazer um bom negócio. Chega de enviar vários e-mails e se perder num mar de
+            conversas por WhatsApp.
+          </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3" data-bs-toggle="modal"
+              data-bs-target="#modalCadastro">Cadastro Grátis</button>
+            <button type="button" class="btn btn-success btn-lg px-4">Área de Negócios</button>
           </div>
         </div>
       </div>
 
+      <footer>
+        <div class="d-flex p-2 fixed-bottom text-secondary border-top">
+          <small>
+            Cota Aço - Plataforma de compra e venda de aço<br>
+            E-mail contato@cotaaco.com
+          </small>
+        </div>
+      </footer>
 
-      <script>
+      <%-include ('../blocks/modal-cadastro.ejs') %>
 
-        function login() {
-
-          let formLogin = document.getElementById('formLogin')
-            , login = document.getElementById('login')
-            , pw = document.getElementById('pw')
-            , btnSubmit = document.getElementById('btnSubmit')
-
-          btnSubmit.addEventListener('click', event => {
-
-            event.preventDefault()
-
-            if (login.value === '' || pw.value === '') {
-
-              alert('Informe dados de acesso')
-
-            } else {
-
-              axios(
-                {
-                  method: 'post',
-                  url: '/login',
-                  data: {
-                    login: login.value,
-                    pw: pw.value
-                  }
-                }
-              )
-
-                .then((response) => {
-
-                  if (response.data.token && response.data.logged) {
-
-                    document.cookie = `token=${response.data.token}`
-                    document.location.assign('/adm')
-
-                  } else {
-
-                    if (response.data.message) {
-
-                      alert(response.data.message)
-
-                    } else (
-
-                      alert('Tente novamente.')
-
-                    )
-
-                  }
-
-                })
-
-                .catch((err) => {
-
-                  console.log(err)
-
-                })
-            }
-
-          })
-
-        }
-
-        function recovery() {
-
-          let btnRecovery = document.getElementById('btnRecovery')
-            , email = document.getElementById('email')
-
-          btnRecovery.addEventListener('click', event => {
-
-            event.preventDefault()
-            if (email.value === '') {
-
-              alert('Informe seu e-mail')
-
-            } else {
-
-              axios(
-                {
-                  method: 'post',
-                  url: '/recovery',
-                  data: {
-                    email: email.value
-                  }
-                }
-              )
-
-                .then((response) => {
-
-                  console.log(response)
-
-                })
-
-                .catch((err) => {
-
-                  console.log(err)
-
-                })
-
-            }
-
-          })
-
-        }
-
-        window.onload = () => {
-
-          login()
-          recovery()
-
-        }
-
-      </script>
+    </main>
   </body>
   <%-include ('../blocks/vendor.ejs') %>
 
