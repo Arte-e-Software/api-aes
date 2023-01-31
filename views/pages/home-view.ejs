@@ -2,57 +2,132 @@
 <html lang="en">
 <%-include ('../blocks/head') %>
 
-  <body>
-    <main>
+  <style>
+    .container {
+      max-width: 1000px;
+    }
 
-      <div class="px-4 py-5 text-center">
-        <img class="d-block mx-auto mb-5" src="assets/images/brand/logo-cotaaco.svg"" alt="" width=" 360">
-        <h1 class="display-5 fw-bold">Faça bons negócios</h1>
-        <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">A CotaAço é a primeira plataforma de negócios de aço no Brasil. Tudo num único
-            lugar. Compradores fazem cotações, comparam preços e condições.
-            Fornecedores vendem para diversos compradores. Simples e prático. Cadastre sua empresa agora mesmo e nunca
-            mais
-            perca a oportunidade de fazer um bom negócio. Chega de enviar vários e-mails e se perder num mar de
-            conversas por WhatsApp.
-          </p>
-          <p>
-          <p>
-          <h4>Bobinas, Sliters, Chapas, Blanks e Tubos</h4>
-          </p>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-2 ">
-            <button type="button" class="btn btn-warning btn-lg px-4" data-bs-toggle="modal"
-              data-bs-target="#modalLogin">Já tem
-              cadastro? Acesse o sistema</button>
+    .pricing-header {
+      max-width: 700px;
+    }
+
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+  <body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="check" viewBox="0 0 16 16">
+        <title>Check</title>
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+      </symbol>
+    </svg>
+
+    <div class="container py-3">
+      <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            <img src="assets/images/brand/cotaaco-logo.svg" width="150">
+          </a>
+          <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a class="me-3 py-2 text-dark text-decoration-none" href="#">Faça uma Cotação</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="#">Seja um Fornecedor</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="#">Fale Conosco</a>
+            <a class="py-2 text-dark text-decoration-none" href="#">Entrar</a>
+          </nav>
+        </div>
+
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+          <h2 class="fw-normal text-primary">Bobinas, Sliters, Chapas, Blanks e Tubos</h2>
+        </div>
+      </header>
+
+      <main>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal"><i class="bi bi-cart"></i>&nbsp;&nbsp;Comprador</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Cotações Ilimitadas</li>
+                  <li>Diversos Fornecedores</li>
+                  <li>Compare Condições</li>
+                  <li>Acesso Seguro</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Faça uma Cotação</button>
+              </div>
+            </div>
           </div>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-2">
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3" data-bs-toggle="modal"
-              data-bs-target="#modalCadastro">Faça uma cotação</button>
-            <button type="button" class="btn btn-success btn-lg px-4" data-bs-toggle="modal"
-              data-bs-target="#modalCadastro">Seja um Fornecedor</button>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal"><i class="bi bi-shop-window"></i>&nbsp;&nbsp;Fornecedor</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Diversos Compradores</li>
+                  <li>Responda Online</li>
+                  <li>Divulgue seus Produtos</li>
+                  <li>Acesso Seguro</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-primary">Seja um Fornecedor</button>
+              </div>
+            </div>
           </div>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-3">
-            <h5 class="text-secondary">Fornecedores: <a href="#" data-bs-toggle="modal"
-                data-bs-target="#modalCadastro">cadastre
-                seus produtos</a> e seja um assinante vip.</h5>
-            </p>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+              <div class="card-header py-3 text-white bg-primary border-primary">
+                <h4 class="my-0 fw-normal"><i class="bi bi-shop"></i>&nbsp;&nbsp;Parceiro Vip</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Diversos Compradores</li>
+                  <li>E-mail Marketing Profissional</li>
+                  <li>Suporte por Especialista</li>
+                  <li>Acesso Seguro</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-primary">Fale Conosco</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <footer>
-        <div class="d-flex p-2 fixed-bottom text-secondary border-top">
-          <small>
-            Cota Aço - Plataforma de compra e venda de aço<br>
-            E-mail contato@cotaaco.com
-          </small>
+      </main>
+
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-md">
+            <img src="assets/images/brand/cotaaco-logo.svg" width="80">
+            <small class="d-block mb-3 text-muted">&copy; 2023</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Sobre</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Nosso Time</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Localização</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Termo de Privacidade</a></li>
+            </ul>
+          </div>
         </div>
       </footer>
+    </div>
 
-      <%-include ('../blocks/modal-cadastro.ejs') %>
-        <%-include ('../blocks/modal-login.ejs') %>
-
-    </main>
   </body>
   <%-include ('../blocks/vendor.ejs') %>
 
