@@ -7,7 +7,7 @@ module.exports = router.get('/', (req, res) => {
 
   console.log(domain)
 
-  if (domain === 'https://aes.tec.br') {
+  if (domain === 'aes.tec.br') {
 
     res.render('pages/aes', { "title": 'Arte & Software Tecnologia', "req": req })
 
