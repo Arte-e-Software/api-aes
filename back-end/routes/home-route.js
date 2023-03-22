@@ -3,7 +3,9 @@ const express = require('express')
 
 module.exports = router.get('/', (req, res) => {
 
-  let domain = req.baseUrl
+  let domain = req.rawHeaders[1]
+
+  console.log(domain)
 
   if (domain === 'https://aes.tec.br') {
 
