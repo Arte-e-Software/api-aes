@@ -9,11 +9,11 @@ module.exports = router.get('/', (req, res) => {
 
   if (domain === 'aes.tec.br') {
 
-    res.render('pages/aes', { "title": 'Arte & Software Tecnologia', "req": req })
+    res.render('pages/aes', { "title": 'API-AES - Login', "req": req })
 
   } else {
 
-    res.render('pages/home-view', { "title": 'Compra e venda de Aço', "req": req })
+    res.render('pages/home-view', { "title": 'API-AES - Login', "req": req })
 
   }
 

@@ -48,8 +48,6 @@ app.set('views', path.join(__dirname, '.', 'views'))
 
 // rotas - res.render
 app.get('/', require('./back-end/routes/home-route'))
-app.get('/comprar', require('./back-end/routes/comprar-route'))
-app.get('/vender', require('./back-end/routes/vender-route'))
 app.post('/login', require('./back-end/routes/login-route'))
 app.get('/logout', require('./back-end/routes/logout-route'))
 app.post('/recovery', require('./back-end/routes/recovery'))

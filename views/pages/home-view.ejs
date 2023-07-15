@@ -1,111 +1,141 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100">
+
 <%-include ('../blocks/head') %>
 
-  <body>
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
 
-    <div class="container-fluid p-5">
-      <header>
-        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-          <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-            <img src="assets/images/brand/cotaaco-logo.svg" width="150">
-          </a>
-          <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-            <a class="me-3 py-2 text-dark text-decoration-none" href="#">Faça uma Cotação</a>
-            <a class="me-3 py-2 text-dark text-decoration-none" href="#">Seja um Fornecedor</a>
-            <a class="me-3 py-2 text-dark text-decoration-none" href="#">Fale Conosco</a>
-            <a class="py-2 text-dark text-decoration-none" href="#">Entrar</a>
-          </nav>
-        </div>
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
 
-        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-          <h3 class="fw-normal text-primary">Bobinas, Sliters, Chapas, Blanks e Tubos</h3>
-          <p>
-            Pellentesque mauris turpis, dictum id nulla ut, feugiat rhoncus dolor. Sed vel mollis purus. Phasellus ex
-            urna, cursus
-            eu augue in, convallis mattis diam. Curabitur tincidunt viverra congue. Class aptent taciti sociosqu ad
-            litora torquent
-            per conubia nostra, per inceptos himenaeos. In eget semper nunc. Vestibulum consequat eu lorem finibus
-            fermentum.
-          </p>
+    /*
+ * Globals
+ */
+
+
+    /* Custom default button */
+    .btn-secondary,
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+      color: #333;
+      text-shadow: none;
+      /* Prevent inheritance from `body` */
+    }
+
+
+    /*
+ * Base structure
+ */
+
+    body {
+      box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+    }
+
+    .cover-container {
+      max-width: 42em;
+    }
+
+
+    /*
+ * Header
+ */
+
+    .nav-masthead .nav-link {
+      padding: .25rem 0;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .5);
+      background-color: transparent;
+      border-bottom: .25rem solid transparent;
+    }
+
+    .nav-masthead .nav-link:hover,
+    .nav-masthead .nav-link:focus {
+      border-bottom-color: rgba(255, 255, 255, .25);
+    }
+
+    .nav-masthead .nav-link+.nav-link {
+      margin-left: 1rem;
+    }
+
+    .nav-masthead .active {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+  </style>
+
+  </head>
+
+  <body class="d-flex h-100 text-center text-white bg-dark">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <div>
+
         </div>
       </header>
 
-      <main>
-        <div class="row row-cols-1 row-cols-md-2 mb-3 text-center">
-          <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm">
-              <div class="card-header py-3">
-                <h4 class="my-0 fw-normal"><i class="bi bi-cart"></i>&nbsp;&nbsp;Comprador</h4>
-              </div>
-              <div class="card-body">
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>Diversos Fornecedores</li>
-                  <li>Cotações Ilimitadas</li>
-                  <li>Compare Condições</li>
-                  <li>Acesso Seguro de Qualquer Lugar</li>
-                </ul>
-                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Faça uma Cotação</button>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm">
-              <div class="card-header py-3">
-                <h4 class="my-0 fw-normal"><i class="bi bi-shop-window"></i>&nbsp;&nbsp;Fornecedor</h4>
-              </div>
-              <div class="card-body">
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>Diversos Compradores</li>
-                  <li>Envie propostas Online</li>
-                  <li>Divulgue seus Produtos</li>
-                  <li>Acesso Seguro de Qualquer Lugar</li>
-                </ul>
-                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Seja um Fornecedor</button>
-              </div>
-            </div>
-          </div>
-          <!--
-          <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm border-primary">
-              <div class="card-header py-3 text-white bg-primary border-primary">
-                <h4 class="my-0 fw-normal"><i class="bi bi-shop"></i>&nbsp;&nbsp;Parceiro Vip</h4>
-              </div>
-              <div class="card-body">
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>Diversos Compradores</li>
-                  <li>E-mail Marketing Profissional</li>
-                  <li>Suporte por Especialista</li>
-                  <li>Acesso Seguro</li>
-                </ul>
-                <button type="button" class="w-100 btn btn-lg btn-primary">Fale Conosco</button>
-              </div>
-            </div>
-          </div>
-          -->
-        </div>
+      <main class="px-3">
 
       </main>
-
-      <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-          <div class="col-12 col-md">
-            <img src="assets/images/brand/cotaaco-logo.svg" width="80">
-            <small class="d-block mb-3 text-muted">&copy; 2023</small>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Sobre</h5>
-            <ul class="list-unstyled text-small">
-              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Nosso Time</a></li>
-              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Localização</a></li>
-              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Termo de Privacidade</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
     </div>
-
   </body>
-  <%-include ('../blocks/vendor.ejs') %>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalLogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="modalLoginLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-primary" id="modalLoginLabel"><img src="assets/images/api-aes-vetor.svg"
+              height="70">
+          </h5>
+        </div>
+        <div class="modal-body text-dark">
+          <p>Efetue Login</p>
+          <form class="form-group text-left">
+            <input type="text" id="usuario" class="form-control mb-2" placeholder="Usuário">
+            <input type="password" id="senha" class="form-control" placeholder="Senha">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" id="btnSair">Sair</button>
+          <button type="button" class="btn btn-primary" id="btnAcessar">Acessar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%-include ('../blocks/vendor') %>
+
+    <script>
+
+      let btnSair = document.getElementById('btnSair')
+      btnSair.addEventListener('click', () => {
+
+        event.preventDefault()
+        alert('Você será redirecionado para a página que o trouxe até aqui.')
+
+      })
+
+      function openModal() {
+
+        let modalLogin = new bootstrap.Modal(document.getElementById('modalLogin'), { keyboard: false })
+
+        modalLogin.show()
+
+      }
+
+      openModal()
+
+    </script>
 
 </html>
