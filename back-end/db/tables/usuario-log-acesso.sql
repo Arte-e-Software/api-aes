@@ -11,6 +11,7 @@ CREATE TABLE [dbo].[usuario_log_acesso]
 (
     [id_usuario_log_acesso] INT NOT NULL PRIMARY KEY IDENTITY, -- Primary Key column
     [id_usuario] INT NOT NULL,
+    [id_tenant] INT NOT NULL,
     [data_acesso] DATETIME NOT NULL,
     [status_acesso] bit NOT NULL, -- 0 fails, 1 success
     [crdate] DATETIME NOT NULL,

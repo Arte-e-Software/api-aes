@@ -1,29 +1,28 @@
 {
-    "name": "steel",
+    "name": "api-aes",
     "version": "1.0.0",
     "private": true,
     "repository": {
         "type": "git",
-        "url": "https://github.com/Arte-e-Software/steel.git"
+        "url": "https://github.com/Arte-e-Software/api-aes.git"
     },
     "author": {
         "name": "Pedro Silva",
-        "email": "pedro.com@gmail.com",
+        "email": "pedro.silva@aes.tec.br",
         "homepage": "https://aes.tec.br"
     },
     "license": "ISC",
     "engines": {
-        "node": ">=16.0.0 <17.0.0"
+        "node": ">=12.0.0 <17.0.0"
     },
     "scripts": {
         "dev": "NODE_ENV=dev nodemon ./index.js",
-        "prod": "NODE_ENV=prod node ./index.js"
+        "prod": "NODE_ENV=prod nodemon ./index.js"
     },
     "dependencies": {
         "axios": "^1.2.0",
         "cookie-parser": "^1.4.6",
         "cors": "^2.8.5",
-        "crypto-js": "^4.1.1",
         "debug": "~2.6.9",
         "dotenv": "^10.0.0",
         "ejs": "^3.1.8",

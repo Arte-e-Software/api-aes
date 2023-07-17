@@ -9,8 +9,8 @@ GO
 -- Create the table in the specified schema
 CREATE TABLE [dbo].[usuario]
 (
-    [IdUsuario] INT NOT NULL PRIMARY KEY IDENTITY, -- Primary Key column
-    [idTenant] INT NOT NULL,
+    [id_usuario] INT NOT NULL PRIMARY KEY IDENTITY, -- Primary Key column
+    [id_tenant] INT NOT NULL,
     [nome] varchar(100) NOT NULL,
     [email] varchar(100) NOT NULL,
     [celular] char(15) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE [dbo].[usuario]
     [cep] CHAR(8) NOT NULL,
     [senha] CHAR(64) NOT NULL,
     [crdate] DATETIME NOT NULL,
-    [ISACTIVE] BIT NOT NULL
+    [isactive] BIT NOT NULL
     -- Specify more columns here
 );
 GO

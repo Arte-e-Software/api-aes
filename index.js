@@ -5,7 +5,7 @@
  */
 
 var app = require('./app');
-var debug = require('debug')('persona360:server');
+var debug = require('debug')('api-aes:server');
 var http = require('http');
 
 /**
