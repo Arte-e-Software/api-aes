@@ -89,4 +89,5 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-console.log(`Express    req   localhost:` + port);
+console.log(`Express req localhost:` + port);
+

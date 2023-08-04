@@ -1,5 +1,5 @@
 module.exports = {
-    "db_08310130000132": {
+    "aes": {
         "user": process.env.MSSQL_USER,
         "password": process.env.MSSQL_PASSWORD,
         "server": process.env.MSSQL_SERVER,
