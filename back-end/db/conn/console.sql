@@ -34,4 +34,6 @@ CREATE TABLE empresa
     CRIMPORT DATETIME,
     ULTIMO_ENVIO DATETIME
 );
-GO
+select top 10 * from empresa order by id_empresa desc
+
+use aes
