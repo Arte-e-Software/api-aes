@@ -9,16 +9,19 @@ const express = require('express')
 // config dotenv file
 require('dotenv').config({ path: process.env.NODE_ENV === 'dev' ? '.dev.env' : '.env' })
 
+app.use(cors());
+
 // config contentSecurityPolicy
-app.use(helmet())
 app.use(
     helmet.contentSecurityPolicy({
         useDefaults: true,
         directives: {
-            "script-src": ["'self'", "'unsafe-inline'"]
+            "script-src": ["'self'", "'unsafe-inline'", "'http://localhost'"]
         }
     })
 )
+
+app.use(helmet())
 app.disable('x-powered-by')
 
 // config express
@@ -32,6 +35,9 @@ app.set('views', path.join(__dirname, '.', 'views'))
 
 // rotas - res.render
 app.get('/', require('./back-end/routes/home-route'))
+
+// rotas api
+app.all('/sosminhacasa/pesquisa', cors('http://localhost'), require('./back-end/routes/sosminhacasa/pesquisa'))
 
 
 // ISSUE ***
