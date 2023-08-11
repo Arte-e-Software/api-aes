@@ -9,6 +9,7 @@ const express = require('express')
 // config dotenv file
 require('dotenv').config({ path: process.env.NODE_ENV === 'dev' ? '.dev.env' : '.env' })
 
+/*
 app.use(cors());
 
 // config contentSecurityPolicy
@@ -23,6 +24,7 @@ app.use(
 
 app.use(helmet())
 app.disable('x-powered-by')
+*/
 
 // config express
 app.use(express.json())
