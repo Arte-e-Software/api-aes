@@ -7,8 +7,8 @@ GO
 CREATE TABLE sos_minha_casa_respondente
 (
     id_respondente INT NOT NULL PRIMARY KEY IDENTITY, -- primary key column
-    nome [NVARCHAR](200) NOT NULL,
-    email [NVARCHAR](200) NOT NULL,
+    nome [VARCHAR](200) NOT NULL,
+    email [VARCHAR](200) NOT NULL,
     celular [CHAR](15) NOT NULL,
     crdate [DATETIME] NOT NULL,
     isactive [BIT] NOT NULL 

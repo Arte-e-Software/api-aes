@@ -11,11 +11,10 @@ CREATE TABLE sos_minha_casa_resposta
     id_resposta INT NOT NULL PRIMARY KEY IDENTITY, -- primary key column
     id_respondente INT NOT NULL,
     id_pergunta INT NOT NULL,
-    resposta [VARCHAR](200) NOT NULL,
+    resposta [VARCHAR](500) NOT NULL,
     crdate [DATETIME] NOT NULL,
     isactive [BIT] NOT NULL
 );
 
 GO
 
-SELECT * FROM sos_minha_casa_resposta

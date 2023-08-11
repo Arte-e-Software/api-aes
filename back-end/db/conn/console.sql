@@ -1,4 +1,5 @@
-select id_pergunta, pergunta from sos_minha_casa_pergunta
+select * from sos_minha_casa_respondente
 
-select top 1 * from sos_minha_casa_pergunta
+select * from sos_minha_casa_pergunta
 
+update  sos_minha_casa_pergunta set input_type = 'text' where id_pergunta = 11

@@ -37,7 +37,7 @@ app.set('views', path.join(__dirname, '.', 'views'))
 app.get('/', require('./back-end/routes/home-route'))
 
 // rotas api
-app.all('/sosminhacasa/pesquisa', cors('http://localhost'), require('./back-end/routes/sosminhacasa/pesquisa'))
+app.all('/sosminhacasa/pesquisa/respondente', cors('http://localhost'), require('./back-end/routes/sosminhacasa/pesquisa/respondente'))
 
 
 // ISSUE ***
