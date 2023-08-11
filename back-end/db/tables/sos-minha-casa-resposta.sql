@@ -1,4 +1,4 @@
-use api_aes
+use [api-aes]
 
 -- Create a new table called 'sos_minha_casa_resposta' in schema 'SchemaName'
 -- Drop the table if it already exists

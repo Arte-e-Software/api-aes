@@ -1,5 +1,4 @@
-
-alter PROCEDURE GRAVA_RESPOSTA 
+CREATE PROCEDURE GRAVA_RESPOSTA 
 @id_respondente INT,
 @id_pergunta int,
 @resposta varchar(500)

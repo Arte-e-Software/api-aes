@@ -1,3 +1,4 @@
+use [API-AES]
 -- Create a new table called 'sos_minha_casa_respondente' in schema 'SchemaName'
 -- Drop the table if it already exists
 IF OBJECT_ID('sos_minha_casa_respondente', 'U') IS NOT NULL

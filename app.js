@@ -16,7 +16,7 @@ app.use(
     helmet.contentSecurityPolicy({
         useDefaults: true,
         directives: {
-            "script-src": ["'self'", "'unsafe-inline'", "'http://localhost'"]
+            "script-src": ["'self'", "'unsafe-inline'", "'http://sosminhacasa.com.br'"]
         }
     })
 )
@@ -37,8 +37,8 @@ app.set('views', path.join(__dirname, '.', 'views'))
 app.get('/', require('./back-end/routes/home-route'))
 
 // rotas api
-app.all('/sosminhacasa/pesquisa/respondente', cors('http://localhost'), require('./back-end/routes/sosminhacasa/pesquisa/respondente'))
-app.all('/sosminhacasa/pesquisa/resposta', cors('http://localhost'), require('./back-end/routes/sosminhacasa/pesquisa/resposta'))
+app.all('/sosminhacasa/pesquisa/respondente', cors('http://sosminhacasa.com.br'), require('./back-end/routes/sosminhacasa/pesquisa/respondente'))
+app.all('/sosminhacasa/pesquisa/resposta', cors('http://sosminhacasa.com.br'), require('./back-end/routes/sosminhacasa/pesquisa/resposta'))
 
 
 // ISSUE ***

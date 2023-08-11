@@ -10,11 +10,9 @@ module.exports = router.all('/sosminhacasa/pesquisa/resposta', (req, res) => {
         , resposta = req.body.resposta
         , erro = id_respondente === '' || id_pergunta === '' || resposta === ''
 
-
-
     if (!erro) {
 
-        let query = require('../../../models/grava-respondente')(nome, email, celular)
+        let query = require('../../../models/grava-resposta')(id_respondente, id_pergunta, resposta)
 
         console.log(query)
 
