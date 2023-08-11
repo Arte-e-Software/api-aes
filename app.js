@@ -38,6 +38,7 @@ app.get('/', require('./back-end/routes/home-route'))
 
 // rotas api
 app.all('/sosminhacasa/pesquisa/respondente', cors('http://localhost'), require('./back-end/routes/sosminhacasa/pesquisa/respondente'))
+app.all('/sosminhacasa/pesquisa/resposta', cors('http://localhost'), require('./back-end/routes/sosminhacasa/pesquisa/resposta'))
 
 
 // ISSUE ***
